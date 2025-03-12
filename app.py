@@ -13,6 +13,10 @@ with open("preprocessor.pkl", "rb") as f:
 with open("model_xgb.pkl", "rb") as f:
     model_xgb = pickle.load(f)
 
+# Patch the missing attribute if needed:
+if not hasattr(model_xgb, "use_label_encoder"):
+    model_xgb.use_label_encoder = False
+
 with open("model_lgb.pkl", "rb") as f:
     model_lgb = pickle.load(f)
 
