@@ -1,6 +1,8 @@
+# app.py
 from flask import Flask, request, jsonify
 import pandas as pd
 import pickle
+from preprocessor import DataPreprocessor  # Import the class
 
 app = Flask(__name__)
 
