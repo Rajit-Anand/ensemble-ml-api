@@ -1,0 +1,15 @@
+blinker==1.9.0
+click==8.1.8
+Flask==3.1.0
+gunicorn==23.0.0
+itsdangerous==2.2.0
+Jinja2==3.1.6
+MarkupSafe==3.0.2
+packaging==24.2
+Werkzeug==3.1.3
+pandas==1.5.3
+scikit-learn==1.2.0
+numpy==1.24.0         # if not already installed as a dependency
+xgboost==1.7.0        # if you're using XGBoost
+lightgbm==3.3.2       # if you're using LightGBM
+catboost==1.2.3       # if you're using CatBoost
