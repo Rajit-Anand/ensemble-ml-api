@@ -62,7 +62,13 @@ def predict():
         # Parse JSON payload into a DataFrame
         data = request.get_json()
         df = pd.DataFrame(data)
-        
+
+        # Reorder input DataFrame if preprocessor.input_columns is available:
+        if hasattr(preprocessor, 'input_columns') and preprocessor.input_columns:
+            missing = set(preprocessor.input_columns) - set(df.columns)
+            if missing:
+                return jsonify({"error": f"Missing columns: {missing}"}), 400
+            df = df[preprocessor.input_columns]
         # Transform the input using the preprocessor
         df_transformed = preprocessor.transform(df)
         
