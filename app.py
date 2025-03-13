@@ -10,17 +10,17 @@ app = Flask(__name__)
 with open("preprocessor.pkl", "rb") as f:
     preprocessor = pickle.load(f)
 
-with open("model_xgb.pkl", "rb") as f:
+with open("model2_xgb.pkl", "rb") as f:
     model_xgb = pickle.load(f)
 
-# Patch the missing attribute if needed:
-if not hasattr(model_xgb, "use_label_encoder"):
-    model_xgb.use_label_encoder = False
+# # Patch the missing attribute if needed:
+# if not hasattr(model_xgb, "use_label_encoder"):
+#     model_xgb.use_label_encoder = False
 
-with open("model_lgb.pkl", "rb") as f:
+with open("model2_lgb.pkl", "rb") as f:
     model_lgb = pickle.load(f)
 
-with open("model_cat.pkl", "rb") as f:
+with open("model2_cat.pkl", "rb") as f:
     model_cat = pickle.load(f)
 
 
