@@ -2,25 +2,26 @@
 from flask import Flask, request, jsonify
 import pandas as pd
 import pickle
+from flask_cors import CORS
 from preprocessor import DataPreprocessor  # Import the class
 
 app = Flask(__name__)
-
+CORS(app)
 # Load the preprocessor and models
 with open("preprocessor.pkl", "rb") as f:
     preprocessor = pickle.load(f)
 
-with open("model2_xgb.pkl", "rb") as f:
+with open("model3_xgb.pkl", "rb") as f:
     model_xgb = pickle.load(f)
 
 # # Patch the missing attribute if needed:
 # if not hasattr(model_xgb, "use_label_encoder"):
 #     model_xgb.use_label_encoder = False
 
-with open("model2_lgb.pkl", "rb") as f:
+with open("model3_lgb.pkl", "rb") as f:
     model_lgb = pickle.load(f)
 
-with open("model2_cat.pkl", "rb") as f:
+with open("model3_cat.pkl", "rb") as f:
     model_cat = pickle.load(f)
 
 
@@ -98,5 +99,5 @@ def predict():
 
 if __name__ == "__main__":
     import os
-    port = int(os.environ.get("PORT", 5000))
+    port = int(os.environ.get("PORT", 5001))
     app.run(host="0.0.0.0", port=port, debug=False)

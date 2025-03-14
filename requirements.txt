@@ -12,4 +12,4 @@ scikit-learn==1.2.0
 numpy==1.24.0         # if not already installed as a dependency
 xgboost>=1.7.0,<2.0.0 # if you're using XGBoost
 catboost==1.2.3       # if you're using CatBoost
-lightgbm==3.3.2       # if you're using LightGBM
+lightgbm==4.6.0       # if you're using LightGBM
